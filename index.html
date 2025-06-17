@@ -1,11 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ÖDEV</title>
-</head>
-<body>
-    ZİYA ÖDEVİ
-</body>
-</html>
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+// Sayfalar
+import Anasayfa from './pages/Anasayfa';
+import Projeler from './pages/Projeler';
+import Hakkimizda from './pages/Hakkimizda';
+import Iletisim from './pages/Iletisim';
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <header className="header">
+          <h1 className="title">Vatandaş Bilimi</h1>
+          <nav>
+            <ul className="navbar">
+              <li><Link to="/">Anasayfa</Link></li>
+              <li><Link to="/projeler">Projeler</Link></li>
+              <li><Link to="/hakkimizda">Hakkimizda</Link></li>
+              <li><Link to="/iletisim">İletişim</Link></li>
+            </ul>
+          </nav>
+        </header>
+        
+        <main>
+          <Routes>
+            <Route path="/" element={<Anasayfa />} />
+            <Route path="/projeler" element={<Projeler />} />
+            <Route path="/hakkimizda" element={<Hakkimizda />} />
+            <Route path="/iletisim" element={<Iletisim />} />
+          </Routes>
+        </main>
+
+        <footer>
+          <p>© 2025 Vatandaş Bilimi Projesi</p>
+        </footer>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
